@@ -24,7 +24,7 @@ pn.extension('tabulator',
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
         }
         /*.custom-dashboard .bk-panel {
-            margin-bottom: 5px; /* Adjust space between rows */
+            margin-bottom: 10px; /* Adjust space between rows */
         }*/
         """
     ]
@@ -769,7 +769,7 @@ dashboard = pn.Column(
     pn.Row(overall_price_distribution, house_price_distribution, apartment_price_distribution, sizing_mode="stretch_width", height=500),  # Row 1
     pn.Row(land_price_distribution, villa_price_distribution, price_distribution_by_property_type, sizing_mode="stretch_width", height=500),  # Row 2
     pn.Row(price_distribution_by_number_of_bedroom_for_house, price_distribution_by_number_of_bedroom_for_apartment, price_distribution_by_number_of_bedroom_for_land, sizing_mode="stretch_width", height=0),  # Row 3
-    pn.Row(price_distribution_by_number_of_bedroom_for_villa, sizing_mode="stretch_width", height=500),  # Row 4
+    pn.Row(price_distribution_by_number_of_bedroom_for_villa, sizing_mode="stretch_width", height=600),  # Row 4
     # table,
     css_classes=["custom-dashboard"],
     # margin=(10),
