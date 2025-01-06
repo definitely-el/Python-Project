@@ -764,7 +764,7 @@ dashboard = pn.Column(
 )
 
 # Arrange the plots in rows
-python_dashboard = pn.template.FastListTemplate(
+template = pn.template.FastListTemplate(
     sidebar=[
             pn.pane.Markdown('<div style="text-align: center; font-size: 24px; font-weight: bold;">Housing Prices</div>',
     sizing_mode='stretch_width'),
@@ -794,4 +794,4 @@ python_dashboard = pn.template.FastListTemplate(
 )
 
 # Show Dashboard
-python_dashboard.servable()
+template.servable()
