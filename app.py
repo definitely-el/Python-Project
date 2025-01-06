@@ -174,6 +174,7 @@ plt.title('Overall Price distribution/density')
 
 overall_price_distribution = pn.pane.Matplotlib(plt.gcf(), sizing_mode="stretch_width")
 # plt.show()
+plt.close()  # Close the figure to free memory
 
 
 # Plot 2
@@ -193,6 +194,7 @@ plt.title('House Price distribution/density')
 
 house_price_distribution = pn.pane.Matplotlib(plt.gcf(), sizing_mode="stretch_width")
 # plt.show()
+plt.close()  # Close the figure to free memory
 
 
 # Plot 3
@@ -212,6 +214,7 @@ plt.title('Apartment Price distribution/density')
 
 apartment_price_distribution = pn.pane.Matplotlib(plt.gcf(), sizing_mode="stretch_width")
 # plt.show()
+plt.close()  # Close the figure to free memory
 
 
 # Plot 4
@@ -231,6 +234,7 @@ plt.title('Land Price distribution/density')
 
 land_price_distribution = pn.pane.Matplotlib(plt.gcf(), sizing_mode="stretch_width")
 # plt.show()
+plt.close()  # Close the figure to free memory
 
 
 # Plot 5
@@ -250,6 +254,7 @@ plt.title('Villa Price distribution/density')
 
 villa_price_distribution = pn.pane.Matplotlib(plt.gcf(), sizing_mode="stretch_width")
 # plt.show()
+plt.close()  # Close the figure to free memory
 
 
 
@@ -351,7 +356,7 @@ plt.subplots_adjust(bottom=0.15, wspace=0.05)
 
 price_distribution_by_property_type = pn.pane.Matplotlib(plt.gcf(), sizing_mode="stretch_width")
 # plt.show()
-
+plt.close(fig)  # Close the figure to free memory
 
 
 
@@ -447,6 +452,8 @@ plt.subplots_adjust(bottom=0.15, wspace=0.05)
 
 price_distribution_by_number_of_bedroom_for_house = pn.pane.Matplotlib(plt.gcf(), sizing_mode="stretch_width")
 # plt.show()
+plt.close(fig)  # Close the figure to free memory
+
 
 # visualisation of bedroom number for apartment
 price_of_apartment_1 = viet_housing['price'][(viet_housing['Type'] == 'Apartment') & (viet_housing['bedrooms'] == 1)]
@@ -536,6 +543,8 @@ plt.subplots_adjust(bottom=0.15, wspace=0.05)
 
 price_distribution_by_number_of_bedroom_for_apartment = pn.pane.Matplotlib(plt.gcf(), sizing_mode="stretch_width")
 # plt.show()
+plt.close(fig)  # Close the figure to free memory
+
 
 # visualisation of bedroom number for land
 price_of_land_1 = viet_housing['price'][(viet_housing['Type'] == 'Land')  & (viet_housing['bedrooms'] == 1)]
@@ -629,6 +638,8 @@ plt.subplots_adjust(bottom=0.15, wspace=0.05)
 
 price_distribution_by_number_of_bedroom_for_land = pn.pane.Matplotlib(plt.gcf(), sizing_mode="stretch_width")
 # plt.show()
+plt.close(fig)  # Close the figure to free memory
+
 
 # visualisation of bedroom number for villa
 price_of_villa_1 = viet_housing['price'][(viet_housing['Type'] == 'Villa')  & (viet_housing['bedrooms'] == 1)]
@@ -721,6 +732,7 @@ plt.subplots_adjust(bottom=0.15, wspace=0.05)
 
 price_distribution_by_number_of_bedroom_for_villa = pn.pane.Matplotlib(plt.gcf(), sizing_mode="stretch_width")
 # plt.show()
+plt.close(fig)  # Close the figure to free memory
 
 
 # Display the price of all the district
