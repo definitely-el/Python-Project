@@ -38,7 +38,7 @@ pn.extension('tabulator',
 # pn.extension(raw_css=["custom-dashboard"])
 
 # Load the dataset
-file_path = "C:/Users/lenovo/Documents/Python Project/Data_Wrangling.csv"
+file_path = "Data_Wrangling.csv"
 viet_housing = pd.read_csv(file_path)
 
 # Ensure required columns exist
@@ -764,7 +764,7 @@ dashboard = pn.Column(
 )
 
 # Arrange the plots in rows
-template = pn.template.FastListTemplate(
+app = pn.template.FastListTemplate(
     sidebar=[
             pn.pane.Markdown('<div style="text-align: center; font-size: 24px; font-weight: bold;">Housing Prices</div>',
     sizing_mode='stretch_width'),
@@ -794,4 +794,4 @@ template = pn.template.FastListTemplate(
 )
 
 # Show Dashboard
-template.servable()
+app.servable()
