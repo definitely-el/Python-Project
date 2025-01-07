@@ -23,9 +23,6 @@ pn.extension('tabulator',
             padding: 20px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
         }
-        /*.custom-dashboard .bk-panel {
-            margin-bottom: 10px; /* Adjust space between rows */
-        }*/
         """
     ]
 )
@@ -754,6 +751,15 @@ sns.stripplot(x="price", y="district", data=viet_housing,
 # Make the quantitative axis logarithmic
 sns.despine(trim=True)
 
+price_by_location = pn.pane.Matplotlib(plt.gcf(), sizing_mode="stretch_width")
+
+# plt.show()
+
+plt.close()  # Close the figure to free memory
+
+
+
+
 # Linking the plots
 
 # ls = hv.link_selections.instance()
@@ -771,6 +777,7 @@ dashboard = pn.Column(
     pn.Row(villa_price_distribution, price_distribution_by_property_type, sizing_mode="stretch_width"),  # Row 3
     pn.Row(price_distribution_by_number_of_bedroom_for_house, price_distribution_by_number_of_bedroom_for_apartment, sizing_mode="stretch_width"),  # Row 4
     pn.Row(price_distribution_by_number_of_bedroom_for_land, price_distribution_by_number_of_bedroom_for_villa, sizing_mode="stretch_width"),  # Row 5
+    pn.Row(price_by_location, sizing_mode="stretch_width"),  # Row 6
     # table,
     css_classes=["custom-dashboard"],
     # margin=(10),
