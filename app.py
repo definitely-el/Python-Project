@@ -760,7 +760,7 @@ plt.close(fig)  # Close the figure to free memory
 sns.set(style="ticks", palette="muted", color_codes=True)
 
 
-plt.figure(figsize=(10.0, 6))
+plt.figure(figsize=(9, 9))
 # Plot the orbital period with horizontal boxes
 ax = sns.boxplot(x="price", y="district", data=viet_housing,
                  whis=np.inf, color="c")
