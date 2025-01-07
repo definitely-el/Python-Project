@@ -17,9 +17,8 @@ pn.extension('tabulator',
     raw_css=[
         """
         .custom-dashboard {
-            background-color: #ffffff;
-            /* border: 2px solid #ccc; */
-            border: 3px solid #000;
+            background-color: #f8f9fa;
+            border: 2px solid #ccc;
             border-radius: 10px;
             padding: 20px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
@@ -773,11 +772,11 @@ dashboard_title = pn.pane.Markdown(
 
 dashboard = pn.Column(
     dashboard_title,
-    pn.Row(overall_price_distribution, house_price_distribution, sizing_mode="stretch_width"),  # Row 1
-    pn.Row(apartment_price_distribution, land_price_distribution, sizing_mode="stretch_width"),  # Row 2
-    pn.Row(villa_price_distribution, price_distribution_by_property_type, sizing_mode="stretch_width"),  # Row 3
-    pn.Row(price_distribution_by_number_of_bedroom_for_house, price_distribution_by_number_of_bedroom_for_apartment, sizing_mode="stretch_width"),  # Row 4
-    pn.Row(price_distribution_by_number_of_bedroom_for_land, price_distribution_by_number_of_bedroom_for_villa, sizing_mode="stretch_width"),  # Row 5
+    pn.Row(overall_price_distribution, house_price_distribution, sizing_mode="stretch_width", height=1000),  # Row 1
+    pn.Row(apartment_price_distribution, land_price_distribution, sizing_mode="stretch_width", height=1000),  # Row 2
+    pn.Row(villa_price_distribution, price_distribution_by_property_type, sizing_mode="stretch_width", height=1000),  # Row 3
+    pn.Row(price_distribution_by_number_of_bedroom_for_house, price_distribution_by_number_of_bedroom_for_apartment, sizing_mode="stretch_width", height=1000),  # Row 4
+    pn.Row(price_distribution_by_number_of_bedroom_for_land, price_distribution_by_number_of_bedroom_for_villa, sizing_mode="stretch_width", height=1000),  # Row 5
     pn.Row(price_by_location, sizing_mode="stretch_width"),  # Row 6
     # table,
     css_classes=["custom-dashboard"],
