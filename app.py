@@ -766,7 +766,7 @@ dashboard_title = pn.pane.Markdown(
 
 dashboard = pn.Column(
     dashboard_title,
-    pn.Row(overall_price_distribution, house_price_distribution, apartment_price_distribution, sizing_mode="stretch_width", height=500),  # Row 1
+    pn.Row(overall_price_distribution, house_price_distribution, sizing_mode="stretch_width", height=500),  # Row 1
     pn.Row(apartment_price_distribution, land_price_distribution, sizing_mode="stretch_width", height=500),  # Row 1
     pn.Row(villa_price_distribution, price_distribution_by_property_type, sizing_mode="stretch_width", height=500),  # Row 1
     pn.Row(price_distribution_by_number_of_bedroom_for_house, price_distribution_by_number_of_bedroom_for_apartment, sizing_mode="stretch_width", height=500),  # Row 2
