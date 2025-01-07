@@ -17,8 +17,9 @@ pn.extension('tabulator',
     raw_css=[
         """
         .custom-dashboard {
-            background-color: #f8f9fa;
-            border: 2px solid #ccc;
+            background-color: #ffffff;
+            /* border: 2px solid #ccc; */
+            border: 3px solid #000;
             border-radius: 10px;
             padding: 20px;
             box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
