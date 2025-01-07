@@ -153,7 +153,29 @@ filtered_data = idf[
 # Display filtered data as a table
 # table = filtered_data.pipe(pn.widgets.Tabulator, pagination="remote", page_size=10)
 """
+
 # Plot 1
+# Number of properties by type
+
+type_counts = viet_housing['Type'].value_counts()
+
+plt.figure(figsize=(9, 9))
+sns.barplot(x=type_counts.index, y=type_counts.values, palette='Reds')
+
+for i, count in enumerate(type_counts.values):
+    plt.text(i, count + 0.5, str(count), ha='center', va='bottom', fontsize=10)
+
+plt.title('Overall Distribution of Property Types')
+plt.xlabel('Property Type')
+plt.ylabel('Count')
+plt.xticks()
+
+number_of_properties_by_type = pn.pane.Matplotlib(plt.gcf(), sizing_mode="stretch_width")
+# plt.show()
+plt.close()  # Close the figure to free memory
+
+
+# Plot 2
 # visualisation for price vs house type
 # Overall price distribution
 mean_overall = np.mean(price_of_all)
@@ -174,7 +196,7 @@ overall_price_distribution = pn.pane.Matplotlib(plt.gcf(), sizing_mode="stretch_
 plt.close()  # Close the figure to free memory
 
 
-# Plot 2
+# Plot 3
 # House price distribution
 mean_house = np.mean(price_of_house)
 median_house = np.median(price_of_house)
@@ -194,7 +216,7 @@ house_price_distribution = pn.pane.Matplotlib(plt.gcf(), sizing_mode="stretch_wi
 plt.close()  # Close the figure to free memory
 
 
-# Plot 3
+# Plot 4
 # Apartment price distribution
 mean_apartment = np.mean(price_of_apartment)
 median_apartment = np.median(price_of_apartment)
@@ -214,7 +236,7 @@ apartment_price_distribution = pn.pane.Matplotlib(plt.gcf(), sizing_mode="stretc
 plt.close()  # Close the figure to free memory
 
 
-# Plot 4
+# Plot 5
 # Land price distribution
 mean_land = np.mean(price_of_land)
 median_land = np.median(price_of_land)
@@ -234,7 +256,7 @@ land_price_distribution = pn.pane.Matplotlib(plt.gcf(), sizing_mode="stretch_wid
 plt.close()  # Close the figure to free memory
 
 
-# Plot 5
+# Plot 6
 # Villa price distribution
 mean_villa = np.mean(price_of_villa)
 median_villa = np.median(price_of_villa)
@@ -344,7 +366,7 @@ legend_patches = [Patch(facecolor=colors[i], edgecolor='black', label=labels[i])
 ax.legend(handles=legend_patches, loc='upper right', title='Property Type')
 
 
-# Plot 6
+# Plot 7
 # Dynamically adjust y-axis limits based on data
 all_data = np.concatenate(data)
 ax.set_ylim(0, all_data.max() * 1.1)
@@ -440,7 +462,7 @@ legend_patches = [Patch(facecolor=colors[i], edgecolor='black', label=labels[i])
 ax.legend(handles=legend_patches, loc='upper right', title='Number of bedroom')
 
 
-# Plot 7
+# Plot 8
 # Dynamically adjust y-axis limits based on data
 all_data_house = np.concatenate(data_house)
 ax.set_ylim(0, all_data_house.max() * 1.1)
@@ -531,7 +553,7 @@ legend_patches = [Patch(facecolor=colors[i], edgecolor='black', label=labels[i])
 ax.legend(handles=legend_patches, loc='upper right', title='Number of bedroom')
 
 
-# Plot 8
+# Plot 9
 # Dynamically adjust y-axis limits based on data
 all_data_apartment = np.concatenate(data_apartment)
 ax.set_ylim(0, all_data_apartment.max() * 1.1)
@@ -626,7 +648,7 @@ legend_patches = [Patch(facecolor=colors[i], edgecolor='black', label=labels[i])
 ax.legend(handles=legend_patches, loc='upper right', title='Number of bedroom')
 
 
-# Plot 9
+# Plot 10
 # Dynamically adjust y-axis limits based on data
 all_data_land = np.concatenate(data_land)
 ax.set_ylim(0, all_data_land.max() * 1.1)
@@ -720,7 +742,7 @@ legend_patches = [Patch(facecolor=colors[i], edgecolor='black', label=labels[i])
 ax.legend(handles=legend_patches, loc='upper right', title='Number of bedroom')
 
 
-# Plot 10
+# Plot 11
 # Dynamically adjust y-axis limits based on data
 all_data_villa = np.concatenate(data_villa)
 ax.set_ylim(0, all_data_villa.max() * 1.1)
@@ -732,10 +754,9 @@ price_distribution_by_number_of_bedroom_for_villa = pn.pane.Matplotlib(plt.gcf()
 plt.close(fig)  # Close the figure to free memory
 
 
+# Plot 12
 # Display the price of all the district
 sns.set(style="ticks", palette="muted", color_codes=True)
-
-# Load the example planets dataset
 
 
 plt.figure(figsize=(10.0, 6))
@@ -771,13 +792,13 @@ dashboard_title = pn.pane.Markdown(
 )
 
 dashboard = pn.Column(
-    dashboard_title,
-    pn.Row(overall_price_distribution, house_price_distribution, sizing_mode="stretch_width", height=1000),  # Row 1
-    pn.Row(apartment_price_distribution, land_price_distribution, sizing_mode="stretch_width", height=1000),  # Row 2
-    pn.Row(villa_price_distribution, price_distribution_by_property_type, sizing_mode="stretch_width", height=1000),  # Row 3
-    pn.Row(price_distribution_by_number_of_bedroom_for_house, price_distribution_by_number_of_bedroom_for_apartment, sizing_mode="stretch_width", height=1000),  # Row 4
-    pn.Row(price_distribution_by_number_of_bedroom_for_land, price_distribution_by_number_of_bedroom_for_villa, sizing_mode="stretch_width", height=1000),  # Row 5
-    pn.Row(price_by_location, sizing_mode="stretch_width"),  # Row 6
+    dashboard_title, 
+    pn.Row(number_of_properties_by_type, overall_price_distribution, sizing_mode="stretch_width", height=1000),  # Row 1
+    pn.Row(house_price_distribution, apartment_price_distribution, sizing_mode="stretch_width", height=1000),  # Row 2
+    pn.Row(land_price_distribution, villa_price_distribution, sizing_mode="stretch_width", height=1000),  # Row 3
+    pn.Row(price_distribution_by_property_type, price_distribution_by_number_of_bedroom_for_house, sizing_mode="stretch_width", height=1000),  # Row 4
+    pn.Row(price_distribution_by_number_of_bedroom_for_apartment, price_distribution_by_number_of_bedroom_for_land, sizing_mode="stretch_width", height=1000),  # Row 5
+    pn.Row(price_distribution_by_number_of_bedroom_for_villa, price_by_location, sizing_mode="stretch_width"),  # Row 6
     # table,
     css_classes=["custom-dashboard"],
     # margin=(10),
