@@ -155,27 +155,6 @@ filtered_data = idf[
 """
 
 # Plot 1
-# Number of properties by type
-
-type_counts = viet_housing['Type'].value_counts()
-
-plt.figure(figsize=(9, 9))
-sns.barplot(x=type_counts.index, y=type_counts.values, palette='Reds')
-
-for i, count in enumerate(type_counts.values):
-    plt.text(i, count + 0.5, str(count), ha='center', va='bottom', fontsize=10)
-
-plt.title('Overall Distribution of Property Types')
-plt.xlabel('Property Type')
-plt.ylabel('Count')
-plt.xticks()
-
-number_of_properties_by_type = pn.pane.Matplotlib(plt.gcf(), sizing_mode="stretch_width")
-# plt.show()
-plt.close()  # Close the figure to free memory
-
-
-# Plot 2
 # visualisation for price vs house type
 # Overall price distribution
 mean_overall = np.mean(price_of_all)
@@ -192,6 +171,28 @@ plt.xlim(0,None)
 plt.title('Overall Price distribution/density')
 
 overall_price_distribution = pn.pane.Matplotlib(plt.gcf(), sizing_mode="stretch_width")
+# plt.show()
+plt.close()  # Close the figure to free memory
+
+
+
+# Plot 2
+# Number of properties by type
+
+type_counts = viet_housing['Type'].value_counts()
+
+plt.figure(figsize=(9, 9))
+sns.barplot(x=type_counts.index, y=type_counts.values, palette='Reds')
+
+for i, count in enumerate(type_counts.values):
+    plt.text(i, count + 0.5, str(count), ha='center', va='bottom', fontsize=10)
+
+plt.title('Overall Distribution of Property Types')
+plt.xlabel('Property Type')
+plt.ylabel('Count')
+plt.xticks()
+
+number_of_properties_by_type = pn.pane.Matplotlib(plt.gcf(), sizing_mode="stretch_width")
 # plt.show()
 plt.close()  # Close the figure to free memory
 
@@ -793,7 +794,7 @@ dashboard_title = pn.pane.Markdown(
 
 dashboard = pn.Column(
     dashboard_title, 
-    pn.Row(number_of_properties_by_type, overall_price_distribution, sizing_mode="stretch_width", height=1000),  # Row 1
+    pn.Row(overall_price_distribution, number_of_properties_by_type, sizing_mode="stretch_width", height=1000),  # Row 1
     pn.Row(house_price_distribution, apartment_price_distribution, sizing_mode="stretch_width", height=1000),  # Row 2
     pn.Row(land_price_distribution, villa_price_distribution, sizing_mode="stretch_width", height=1000),  # Row 3
     pn.Row(price_distribution_by_property_type, price_distribution_by_number_of_bedroom_for_house, sizing_mode="stretch_width", height=1000),  # Row 4
