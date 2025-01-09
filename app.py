@@ -760,7 +760,7 @@ plt.close(fig)  # Close the figure to free memory
 sns.set(style="ticks", palette="muted", color_codes=True)
 
 
-plt.figure(figsize=(9, 9))
+plt.figure(figsize=(10, 10))
 # Plot the orbital period with horizontal boxes
 ax = sns.boxplot(x="price", y="district", data=viet_housing,
                  whis=np.inf, color="c")
@@ -768,6 +768,7 @@ ax = sns.boxplot(x="price", y="district", data=viet_housing,
 # Add in points to show each observation
 sns.stripplot(x="price", y="district", data=viet_housing,
               jitter=True, size=3, color=".3", linewidth=0)
+plt.yticks(rotation=45, fontsize = 8)
 
 
 # Make the quantitative axis logarithmic
@@ -776,7 +777,6 @@ sns.despine(trim=True)
 price_by_location = pn.pane.Matplotlib(plt.gcf(), sizing_mode="stretch_width")
 
 # plt.show()
-
 plt.close()  # Close the figure to free memory
 
 
