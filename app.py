@@ -730,7 +730,7 @@ dashboard = pn.Column(
 app = pn.template.FastListTemplate(
     sidebar=[
             pn.pane.Markdown('<div style="text-align: center; font-size: 24px; font-weight: bold;">Housing Prices</div>',
-    sizing_mode='stretch_width'),
+            sizing_mode='stretch_width'),
             pn.pane.PNG('House.png', sizing_mode='scale_both', margin=(20, 0, 20, 0)), 
             pn.pane.Markdown("""
             <div style="text-align: justify; font-size: 16px; font-weight: bold;">
@@ -739,8 +739,152 @@ app = pn.template.FastListTemplate(
             One of those processes is a real estate market analysis. This dashboard analyzes the trends in property prices, locations, and features, 
             which helps provide valuable insights into market dynamics.
             </div>
+            
+            <br><br>
+                             
             """,
             sizing_mode='stretch_width'),
+
+            pn.pane.Markdown("""
+            <div style="font-size: 18px; font-weight: bold;">
+            Plot 1 and 2: Overview of Price Segments and Real Estate Types
+            </div>
+            
+            <ul style="font-size: 16px;">
+                <li>The majority of real estate in the Vietnamese real estate market is concentrated in the low- to mid-priced segment, while the number of properties with unusually high prices accounts for only a small proportion.</li>
+                <li>Housing dominates with 88%, overwhelming other types. This reflects the popular demand of people for real estate for living purposes.</li>
+                <li>Other types such as Land, Apartments, and Villas appear in limited quantities. This may be due to two main factors:
+                    <ul>
+                        <li>Low demand in these segments.</li>
+                        <li>Scarcity of supply, especially in areas with high investment potential.</li>
+                    </ul>
+                </li>
+                <li>Notably, Villas are the type of real estate with the lowest quantity (2.5%). This may be due to high prices or lower market demand than other types.</li>
+            </ul>
+            
+            """, sizing_mode='stretch_width'),
+
+            pn.pane.Markdown("""
+            <div style="font-size: 18px; font-weight: bold;">
+            Plot 3: House Price Distribution Analysis
+            </div>
+            
+            <ul style="font-size: 16px;">
+                <li>The house prices on the market are mainly concentrated in the range of 2,000 to 6,000, with the most popular price (Mode) being 6,666.67.</li>
+                <li>Most transactions are at the average price, which is suitable for the purchasing ability of most consumers.</li>
+                <li>The median price (Median) is 4,359.10, lower than the average price (4,803.36). This reflects the influence of some very high-value houses, pulling the average up.</li>
+                <li>In addition, there are some extremely high-priced properties on the market (over 10,000, especially up to 20,000). However, these properties only account for a very small proportion and may be in the high-end segment or special areas.</li>
+                <li>Mode prices are higher than Median prices, suggesting that much of the buyer demand is focused on median-priced homes, especially near the $6,000 price point.</li>
+            </ul>
+            """, sizing_mode='stretch_width'),
+
+            pn.pane.Markdown("""
+            <div style="font-size: 18px; font-weight: bold;">
+            Plot 7: Price Distribution by Property Type
+            </div>
+                             
+            <div></div>
+                             
+            <div style="font-size: 16px; font-weight: bold;">
+            General Trends:
+            </div>
+            <ul style="font-size: 16px;">
+                <li>Houses and apartments have narrower price ranges, with most prices concentrated at the lower end.</li>
+                <li>Land exhibits a highly variable price distribution, likely driven by factors like size and location.</li>
+                <li>Villas command higher prices overall, aligning with their luxury status.</li>
+            </ul>
+            
+            <div style="font-size: 16px; font-weight: bold;">
+            Implications:
+            </div>
+            <ul style="font-size: 16px;">
+                <li>Indicates the relative affordability of houses and apartments.</li>
+                <li>Highlights the premium status of villas and the variability in land pricing due to external factors.</li>
+            </ul>
+
+            """,
+            sizing_mode='stretch_width'),
+
+            pn.pane.Markdown("""
+            <div style="font-size: 18px; font-weight: bold;">
+            Plot 8: Price Distribution by Number of Bedrooms for Houses
+            </div>
+            
+            <div style="font-size: 16px; font-weight: bold;">
+            Trends by Bedroom Count:
+            </div>
+            <ul style="font-size: 16px;">
+                <li>Smaller houses (1–3 bedrooms) have compact price ranges and lower median prices.</li>
+                <li>Larger houses (4–7 bedrooms) show broader price variability, reflecting diverse influences such as location and amenities.</li>
+                <li>Houses with 8+ bedrooms exhibit tighter price distributions, potentially due to limited market availability.</li>
+            </ul>
+            
+            <div style="font-size: 16px; font-weight: bold;">
+            Implications:
+            </div>
+            <ul style="font-size: 16px;">
+                <li>Confirms that house prices rise with size, though variability grows as houses get larger.</li>
+                <li>Larger homes might cater to niche segments with consistent premium pricing.</li>
+            </ul>
+            """, sizing_mode='stretch_width'),
+
+            pn.pane.Markdown("""
+            <div style="font-size: 18px; font-weight: bold;">
+            Plot 9: Price Distribution by Number of Bedrooms for Apartments
+            </div>
+            
+            
+            <div style="font-size: 16px; font-weight: bold;">
+            Trends by Bedroom Count:
+            </div>
+            <ul style="font-size: 16px;">
+                <li>One-bedroom apartments are common, with tightly clustered prices.</li>
+                <li>Mid-sized apartments (2–4 bedrooms) show increasing prices and greater variability, reflecting differences in size, location, and features.</li>
+                <li>Larger apartments (5–7 bedrooms) exhibit consistently high prices with less variability, suggesting exclusivity.</li>
+            </ul>
+            
+            <div style="font-size: 16px; font-weight: bold;">
+            Implications:
+            </div>
+            <ul style="font-size: 16px;">
+                <li>Highlights strong price differentiation based on apartment size.</li>
+                <li>Larger apartments represent a niche market, with a consistent premium pricing strategy.</li>
+            </ul>
+            """, sizing_mode='stretch_width'),
+
+            pn.pane.Markdown("""
+            <div style="font-size: 18px; font-weight: bold;">
+            Plot 10: Price distribution by number of bedroom for land
+            </div>
+                             
+            <div>
+            This chart shows the price distribution of different numbers of bedrooms for land. As the number of bedrooms increases, the maximum price increases accordingly but the price distribution is not following the same trend. For 2, 3, 5 and 9 bedrooms land, they have the most wide density. As the bedroom number increases to 9, the distribution of these lands have wider range. It’s likely that these lands are located in the districts less popular which explains the lower prices of lands with such a big number of bedrooms.               
+            </div>
+            """,
+            sizing_mode='stretch_width'),
+
+            pn.pane.Markdown("""
+            <div style="font-size: 18px; font-weight: bold;">
+            Plot 11: Price distribution by number of bedroom for villa
+            </div>
+                             
+            <div>
+            This chart shows the price distribution of different numbers of bedrooms for villas. As the number of bedrooms increases, the price increases accordingly since more bedrooms normally mean bigger areas. The maximum number of bedrooms for villas is 5. There are some villas having 1 bedroom, which is not normally the case. However, this website is highly dependent on the users to publish the property information. We are unable to verify the authenticity of the data.               
+            </div>
+            """,
+            sizing_mode='stretch_width'),
+
+            pn.pane.Markdown("""
+            <div style="font-size: 18px; font-weight: bold;">
+            Plot 12: Price of all types properties by district
+            </div>
+                             
+            <div>
+            The price distribution in different neighbourhoods vary. This chart is ranking the neighbourhoods based on the average price of the districts. In Quan 5, the properties have the highest price, meanwhile the lowest price is similar to other districts.               
+            </div>
+            """,
+            sizing_mode='stretch_width'),
+ 
         ],
     main=[dashboard],
 )
