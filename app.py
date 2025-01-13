@@ -785,7 +785,7 @@ app = pn.template.FastListTemplate(
 
             <div></div>
             
-            <div style="font-size: 16px; font-weight: bold;">
+            <div style="font-size: 16px;">
             This plot shows the distribution of property prices across four property types: houses, apartments, land, and villas. Houses and apartments generally have narrower price ranges, with prices concentrated at lower values, reflecting their relative affordability. In contrast, land exhibits a much broader price range, likely influenced by factors such as size, location, and potential for development. Villas, on the other hand, command consistently higher prices due to their luxurious and premium positioning in the market. This analysis underscores the significant variability in property prices across these types, highlighting the affordability of houses and apartments, the flexibility of land prices, and the high-end nature of villas.
             </div>
 
@@ -799,7 +799,7 @@ app = pn.template.FastListTemplate(
             
             <div></div>
                              
-            <div style="font-size: 16px; font-weight: bold;">
+            <div style="font-size: 16px;">
             This plot shows how house prices vary based on the number of bedrooms, with price distributions shown for houses ranging from 1 to 9 bedrooms. Smaller houses with 1–3 bedrooms tend to have less variation in price and lower median prices, reflecting their size and affordability. As the number of bedrooms increases, the price distribution widens, suggesting that additional factors like amenities, location, and overall property size contribute to variability. Interestingly, houses with 8 or more bedrooms show narrower price ranges, likely due to their rarity in the market. Overall, the analysis suggests that while house prices generally increase with size, larger homes experience greater variability, with the exception of niche properties at the highest bedroom counts, which are priced more consistently.
             </div>
 
@@ -812,7 +812,7 @@ app = pn.template.FastListTemplate(
             
             <div></div>
             
-            <div style="font-size: 16px; font-weight: bold;">
+            <div style="font-size: 16px;">
             This plot shows how apartment prices are influenced by the number of bedrooms, analyzing distributions for apartments with 1 to 7 bedrooms. One-bedroom apartments exhibit the highest density within a narrow price range, indicating their abundance and strong demand at affordable price points. Apartments with 2–4 bedrooms show broader price ranges and higher medians, reflecting greater variability due to factors like location, layout, and amenities. Larger apartments with 5–7 bedrooms are priced higher, but their distributions are tighter, suggesting they are less common and consistently positioned as premium offerings. This analysis highlights the significant impact of bedroom count on apartment pricing, with larger apartments catering to a niche market characterized by exclusivity and consistently higher price points.
             </div>
 
