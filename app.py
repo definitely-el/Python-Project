@@ -27,24 +27,9 @@ pn.extension('tabulator',
     ]
 )
 
-
-
-# Defiine Panel Widgets
-
-# price_slider = pn.widgets
-# pn.extension(raw_css=["custom-dashboard"])
-
 # Load the dataset
 file_path = "Data_Wrangling.csv"
 viet_housing = pd.read_csv(file_path)
-
-# Ensure required columns exist
-# required_columns = ['price', 'district', 'bathrooms', 'bedrooms', 'Area (m2)', 'Width', 'Length', 'Type']
-# assert all(col in viet_housing.columns for col in required_columns), "Missing required columns!"
-
-
-# Make DataFrame Pipeline Interactive
-# idf = viet_housing.interactive()
 
 # defining the price by property type
 
@@ -99,60 +84,6 @@ price_of_villa_6 = viet_housing['price'][(viet_housing['Type'] == 'Villa')  & (v
 price_of_villa_7 = viet_housing['price'][(viet_housing['Type'] == 'Villa')  & (viet_housing['bedrooms'] == 7)]
 price_of_villa_8 = viet_housing['price'][(viet_housing['Type'] == 'Villa')  & (viet_housing['bedrooms'] == 8)]
 
-""""
-# Define widgets
-price_slider = pn.widgets.RangeSlider(
-    name="Price Range",
-    start=int(viet_housing['price'].min()),
-    end=int(viet_housing['price'].max()),
-    step=1000,
-    value=(int(viet_housing['price'].min()), int(viet_housing['price'].max()))
-)
-district_dropdown = pn.widgets.Select(name="District", options=viet_housing['district'].dropna().unique().tolist())
-bathroom_dropdown = pn.widgets.Select(name="Bathrooms", options=sorted(viet_housing['bathrooms'].dropna().unique()))
-bedroom_dropdown = pn.widgets.Select(name="Bedrooms", options=sorted(viet_housing['bedrooms'].dropna().unique()))
-area_slider = pn.widgets.RangeSlider(
-    name="Area (m²)",
-    start=int(viet_housing['Area (m2)'].min()),
-    end=int(viet_housing['Area (m2)'].max()),
-    step=10,
-    value=(int(viet_housing['Area (m2)'].min()), int(viet_housing['Area (m2)'].max()))
-)
-length_slider = pn.widgets.RangeSlider(
-    name="Length",
-    start=int(viet_housing['Length'].min()),
-    end=int(viet_housing['Length'].max()),
-    step=10,
-    value=(int(viet_housing['Length'].min()), int(viet_housing['Length'].max()))
-)
-width_slider = pn.widgets.RangeSlider(
-    name="Width",
-    start=int(viet_housing['Width'].min()),
-    end=int(viet_housing['Width'].max()),
-    step=10,
-    value=(int(viet_housing['Width'].min()), int(viet_housing['Width'].max()))
-)
-type_dropdown = pn.widgets.Select(name="Type", options=viet_housing['Type'].dropna().unique().tolist())
-
-# Filter the data interactively
-filtered_data = idf[
-    (idf['price'] >= price_slider.param.value_start) &
-    (idf['price'] <= price_slider.param.value_end) &
-    (idf['district'] == district_dropdown) &
-    (idf['bathrooms'] == bathroom_dropdown) &
-    (idf['bedrooms'] == bedroom_dropdown) &
-    (idf['Area (m2)'] >= area_slider.param.value_start) &
-    (idf['Area (m2)'] <= area_slider.param.value_end) &
-    (idf['Length'] >= area_slider.param.value_start) &
-    (idf['Length'] <= area_slider.param.value_end) &
-    (idf['Width'] >= area_slider.param.value_start) &
-    (idf['Width'] <= area_slider.param.value_end) &
-    (idf['Type'] == type_dropdown)
-]
-
-# Display filtered data as a table
-# table = filtered_data.pipe(pn.widgets.Tabulator, pagination="remote", page_size=10)
-"""
 
 # Plot 1
 # visualisation for price vs house type
@@ -173,7 +104,6 @@ plt.title('Overall Price distribution/density')
 overall_price_distribution = pn.pane.Matplotlib(plt.gcf(), sizing_mode="stretch_width")
 # plt.show()
 plt.close()  # Close the figure to free memory
-
 
 
 # Plot 2
@@ -408,7 +338,6 @@ data_house_9 = sorted(price_of_house_9)
 data_house = [data_house_1, data_house_2, data_house_3, data_house_4, data_house_5, data_house_6, data_house_7, data_house_8, data_house_9]
 
 
-
 fig, ax = plt.subplots(figsize=(9, 9))
 
 ax.set_title('Price distribution by number of bedroom for house')
@@ -497,7 +426,6 @@ data_apartment_7 = sorted(price_of_apartment_7)
 
 
 data_apartment = [data_apartment_1, data_apartment_2, data_apartment_3, data_apartment_4, data_apartment_5, data_apartment_6, data_apartment_7]
-
 
 
 fig, ax = plt.subplots(figsize=(9, 9))
@@ -780,12 +708,7 @@ price_by_location = pn.pane.Matplotlib(plt.gcf(), sizing_mode="stretch_width")
 plt.close()  # Close the figure to free memory
 
 
-
-
 # Linking the plots
-
-# ls = hv.link_selections.instance()
-# ls(scatter.opts(show_legend=False) + price_of_all + price_of_apartment + price_of_house + price_of_land + price_of_villa).cols(2)
 
 # Title with inline HTML for styling
 dashboard_title = pn.pane.Markdown(
@@ -800,9 +723,7 @@ dashboard = pn.Column(
     pn.Row(price_distribution_by_property_type, price_distribution_by_number_of_bedroom_for_house, sizing_mode="stretch_width", height=1000),  # Row 4
     pn.Row(price_distribution_by_number_of_bedroom_for_apartment, price_distribution_by_number_of_bedroom_for_land, sizing_mode="stretch_width", height=1000),  # Row 5
     pn.Row(price_distribution_by_number_of_bedroom_for_villa, price_by_location, sizing_mode="stretch_width"),  # Row 6
-    # table,
     css_classes=["custom-dashboard"],
-    # margin=(10),
 )
 
 # Arrange the plots in rows
@@ -820,19 +741,8 @@ app = pn.template.FastListTemplate(
             </div>
             """,
             sizing_mode='stretch_width'),
-            # pn.pane.Markdown("## Settings"),   
-            # price_slider,
-            # district_dropdown,
-            # bathroom_dropdown,
-            # bedroom_dropdown,
-            # area_slider,
-            # width_slider,
-            # length_slider,
-            # type_dropdown],
         ],
     main=[dashboard],
-    # accent_base_color="#88d8b0",
-    # header_background="#88d8b0"
 )
 
 # Show Dashboard
