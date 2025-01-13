@@ -762,7 +762,8 @@ app = pn.template.FastListTemplate(
                 <li>Notably, Villas are the type of real estate with the lowest quantity (2.5%). This may be due to high prices or lower market demand than other types.</li>
             </ul>
             
-            """, sizing_mode='stretch_width'),
+            """,
+            sizing_mode='stretch_width'),
 
             pn.pane.Markdown("""
             <div style="font-size: 18px; font-weight: bold;">
@@ -776,7 +777,54 @@ app = pn.template.FastListTemplate(
                 <li>In addition, there are some extremely high-priced properties on the market (over 10,000, especially up to 20,000). However, these properties only account for a very small proportion and may be in the high-end segment or special areas.</li>
                 <li>Mode prices are higher than Median prices, suggesting that much of the buyer demand is focused on median-priced homes, especially near the $6,000 price point.</li>
             </ul>
-            """, sizing_mode='stretch_width'),
+            """,
+            sizing_mode='stretch_width'),
+
+            pn.pane.Markdown("""
+            <div style="font-size: 18px; font-weight: bold;">
+            Plot 4: Apartment Price Distribution
+            </div>
+
+            <div></div>
+            
+            <div style="font-size: 16px;">
+            The majority of apartments in Ho Chi Minh City are priced below 4,000, reflecting affordability within this range and strong market demand for mid-range housing. However, a small segment of apartments is priced significantly higher than the mean (above 10,000), representing the luxury market segment.
+            </div>
+
+            """,
+            sizing_mode='stretch_width'),
+
+            pn.pane.Markdown("""
+            <div style="font-size: 18px; font-weight: bold;">
+            Plot 5: Land Price Distribution
+            </div>
+
+            <div></div>
+            
+            <div style="font-size: 16px;">
+            A significant portion of land parcels falls within the price range of 2,000 to 5,000, indicating moderate pricing that aligns with widespread accessibility. In contrast, land priced beyond 8,000 is rare, signaling the presence of high-value or premium properties. Most land sales occur in suburban areas such as Hoc Mon and Cu Chi, which are far from the city center, resulting in generally lower prices. However, land located closer to central districts commands higher prices, catering to a more exclusive market.
+            </div>
+
+            """,
+            sizing_mode='stretch_width'),
+
+            pn.pane.Markdown("""
+            <div style="font-size: 18px; font-weight: bold;">
+            Plot 6: Villa Price Distribution
+            </div>
+
+            <div></div>
+            
+            <div style="font-size: 16px;">
+            Villa prices exhibit a more irregular distribution with multiple peaks, suggesting segmentation within the market. Different price ranges dominate specific villa types or locations. While the distribution appears relatively balanced, the presence of villas priced beyond 10,000 highlights the premium segment. The villa market stands out as distinct, with prices reflecting variations in location, size, owner valuation, and the quality of amenities offered.
+            </div>
+            
+            <div style="font-size: 16px;">
+            Overall, the villa segment is not accessible to everyone due to its exclusivity and higher price points, making it a unique market catering to affluent buyers. Land, on the other hand, is more appropriate for those seeking long-term investment opportunities, particularly in suburban areas. Meanwhile, apartments remain the most affordable and convenient option for buyers with lower budgets, offering opportunities for both homeownership and investment.
+            </div>
+
+            """,
+            sizing_mode='stretch_width'),
 
             pn.pane.Markdown("""
             <div style="font-size: 18px; font-weight: bold;">
@@ -803,7 +851,8 @@ app = pn.template.FastListTemplate(
             This plot shows how house prices vary based on the number of bedrooms, with price distributions shown for houses ranging from 1 to 9 bedrooms. Smaller houses with 1–3 bedrooms tend to have less variation in price and lower median prices, reflecting their size and affordability. As the number of bedrooms increases, the price distribution widens, suggesting that additional factors like amenities, location, and overall property size contribute to variability. Interestingly, houses with 8 or more bedrooms show narrower price ranges, likely due to their rarity in the market. The analysis suggests that while house prices generally increase with size, larger homes experience greater variability, with the exception of niche properties at the highest bedroom counts, which are priced more consistently.
             </div>
 
-            """, sizing_mode='stretch_width'),
+            """,
+            sizing_mode='stretch_width'),
 
             pn.pane.Markdown("""
             <div style="font-size: 18px; font-weight: bold;">
@@ -816,7 +865,8 @@ app = pn.template.FastListTemplate(
             This plot shows how apartment prices are influenced by the number of bedrooms, analyzing distributions for apartments with 1 to 7 bedrooms. One-bedroom apartments exhibit the highest density within a narrow price range, indicating their abundance and strong demand at affordable price points. Apartments with 2–4 bedrooms show broader price ranges and higher medians, reflecting greater variability due to factors like location, layout, and amenities. Larger apartments with 5–7 bedrooms are priced higher, but their distributions are tighter, suggesting they are less common and consistently positioned as premium offerings. This analysis highlights the significant impact of bedroom count on apartment pricing, with larger apartments catering to a niche market characterized by exclusivity and consistently higher price points.
             </div>
 
-            """, sizing_mode='stretch_width'),
+            """,
+            sizing_mode='stretch_width'),
 
             pn.pane.Markdown("""
             <div style="font-size: 18px; font-weight: bold;">
