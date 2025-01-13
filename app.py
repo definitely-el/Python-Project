@@ -857,7 +857,7 @@ app = pn.template.FastListTemplate(
             Plot 10: Price distribution by number of bedroom for land
             </div>
                              
-            <div>
+            <div style="font-size: 16px;">
             This chart shows the price distribution of different numbers of bedrooms for land. As the number of bedrooms increases, the maximum price increases accordingly but the price distribution is not following the same trend. For 2, 3, 5 and 9 bedrooms land, they have the most wide density. As the bedroom number increases to 9, the distribution of these lands have wider range. It’s likely that these lands are located in the districts less popular which explains the lower prices of lands with such a big number of bedrooms.               
             </div>
             """,
@@ -868,7 +868,7 @@ app = pn.template.FastListTemplate(
             Plot 11: Price distribution by number of bedroom for villa
             </div>
                              
-            <div>
+            <div style="font-size: 16px;">
             This chart shows the price distribution of different numbers of bedrooms for villas. As the number of bedrooms increases, the price increases accordingly since more bedrooms normally mean bigger areas. The maximum number of bedrooms for villas is 5. There are some villas having 1 bedroom, which is not normally the case. However, this website is highly dependent on the users to publish the property information. We are unable to verify the authenticity of the data.               
             </div>
             """,
@@ -879,7 +879,7 @@ app = pn.template.FastListTemplate(
             Plot 12: Price of all types properties by district
             </div>
                              
-            <div>
+            <div style="font-size: 16px;">
             The price distribution in different neighbourhoods vary. This chart is ranking the neighbourhoods based on the average price of the districts. In Quan 5, the properties have the highest price, meanwhile the lowest price is similar to other districts.               
             </div>
             """,
