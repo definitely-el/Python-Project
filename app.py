@@ -786,7 +786,7 @@ app = pn.template.FastListTemplate(
             <div></div>
             
             <div style="font-size: 16px;">
-            This plot shows the distribution of property prices across four property types: houses, apartments, land, and villas. Houses and apartments generally have narrower price ranges, with prices concentrated at lower values, reflecting their relative affordability. In contrast, land exhibits a much broader price range, likely influenced by factors such as size, location, and potential for development. Villas, on the other hand, command consistently higher prices due to their luxurious and premium positioning in the market. This analysis underscores the significant variability in property prices across these types, highlighting the affordability of houses and apartments, the flexibility of land prices, and the high-end nature of villas.
+            This plot shows the distribution of property prices across four property types: houses, apartments, land, and villas. Houses and apartments generally have narrower price ranges, with prices concentrated at lower values, reflecting their relative affordability. In contrast, land exhibits a much broader price range, likely influenced by factors such as size, location, and potential for development. Villas, on the other hand, command consistently higher prices due to their luxurious and premium positioning in the market. This analysis emphasizes the significant variability in property prices across these types, highlighting the affordability of houses and apartments, the flexibility of land prices, and the high-end nature of villas.
             </div>
 
             """,
@@ -800,7 +800,7 @@ app = pn.template.FastListTemplate(
             <div></div>
                              
             <div style="font-size: 16px;">
-            This plot shows how house prices vary based on the number of bedrooms, with price distributions shown for houses ranging from 1 to 9 bedrooms. Smaller houses with 1–3 bedrooms tend to have less variation in price and lower median prices, reflecting their size and affordability. As the number of bedrooms increases, the price distribution widens, suggesting that additional factors like amenities, location, and overall property size contribute to variability. Interestingly, houses with 8 or more bedrooms show narrower price ranges, likely due to their rarity in the market. Overall, the analysis suggests that while house prices generally increase with size, larger homes experience greater variability, with the exception of niche properties at the highest bedroom counts, which are priced more consistently.
+            This plot shows how house prices vary based on the number of bedrooms, with price distributions shown for houses ranging from 1 to 9 bedrooms. Smaller houses with 1–3 bedrooms tend to have less variation in price and lower median prices, reflecting their size and affordability. As the number of bedrooms increases, the price distribution widens, suggesting that additional factors like amenities, location, and overall property size contribute to variability. Interestingly, houses with 8 or more bedrooms show narrower price ranges, likely due to their rarity in the market. The analysis suggests that while house prices generally increase with size, larger homes experience greater variability, with the exception of niche properties at the highest bedroom counts, which are priced more consistently.
             </div>
 
             """, sizing_mode='stretch_width'),
