@@ -8,11 +8,11 @@ import seaborn as sns
 from matplotlib.patches import Patch
 import holoviews as hv
 import hvplot.pandas
-
+import sqlite3
 import panel as pn
 
-# Initialize Panel
-# Load CSS
+# initialize Panel
+# load CSS
 pn.extension('tabulator',
     raw_css=[
         """
@@ -27,62 +27,64 @@ pn.extension('tabulator',
     ]
 )
 
-# Load the dataset
-file_path = "Data_Wrangling.csv"
-viet_housing = pd.read_csv(file_path)
+# load the dataset from database and load into pandas dataframe
+database = "real_estate.db"
+query = "SELECT * FROM reestate_infor"
+with sqlite3.connect(database) as conn:
+    reestate_infor = pd.read_sql_query(query, conn)
 
 # defining the price by property type
 
-price_of_all= viet_housing['price']
-price_of_house = viet_housing['price'][viet_housing['Type'] == 'House']
-price_of_apartment = viet_housing['price'][viet_housing['Type'] == 'Apartment']
-price_of_land = viet_housing['price'][viet_housing['Type'] == 'Land']
-price_of_villa = viet_housing['price'][viet_housing['Type'] == 'Villa']
+price_of_all= reestate_infor['price']
+price_of_house = reestate_infor['price'][reestate_infor['Type'] == 'House']
+price_of_apartment = reestate_infor['price'][reestate_infor['Type'] == 'Apartment']
+price_of_land = reestate_infor['price'][reestate_infor['Type'] == 'Land']
+price_of_villa = reestate_infor['price'][reestate_infor['Type'] == 'Villa']
 
 
 # defining the price in number of bedroom for house
-price_of_house_1 = viet_housing['price'][(viet_housing['Type'] == 'House') & (viet_housing['bedrooms'] == 1)]
-price_of_house_2 = viet_housing['price'][(viet_housing['Type'] == 'House') & (viet_housing['bedrooms'] == 2)]
-price_of_house_3 = viet_housing['price'][(viet_housing['Type'] == 'House') & (viet_housing['bedrooms'] == 3)]
-price_of_house_4 = viet_housing['price'][(viet_housing['Type'] == 'House') & (viet_housing['bedrooms'] == 4)]
-price_of_house_5 = viet_housing['price'][(viet_housing['Type'] == 'House') & (viet_housing['bedrooms'] == 5)]
-price_of_house_6 = viet_housing['price'][(viet_housing['Type'] == 'House') & (viet_housing['bedrooms'] == 6)]
-price_of_house_7 = viet_housing['price'][(viet_housing['Type'] == 'House') & (viet_housing['bedrooms'] == 7)]
-price_of_house_8 = viet_housing['price'][(viet_housing['Type'] == 'House') & (viet_housing['bedrooms'] == 8)]
-price_of_house_9 = viet_housing['price'][(viet_housing['Type'] == 'House') & (viet_housing['bedrooms'] == 9)]
+price_of_house_1 = reestate_infor['price'][(reestate_infor['Type'] == 'House') & (reestate_infor['bedrooms'] == 1)]
+price_of_house_2 = reestate_infor['price'][(reestate_infor['Type'] == 'House') & (reestate_infor['bedrooms'] == 2)]
+price_of_house_3 = reestate_infor['price'][(reestate_infor['Type'] == 'House') & (reestate_infor['bedrooms'] == 3)]
+price_of_house_4 = reestate_infor['price'][(reestate_infor['Type'] == 'House') & (reestate_infor['bedrooms'] == 4)]
+price_of_house_5 = reestate_infor['price'][(reestate_infor['Type'] == 'House') & (reestate_infor['bedrooms'] == 5)]
+price_of_house_6 = reestate_infor['price'][(reestate_infor['Type'] == 'House') & (reestate_infor['bedrooms'] == 6)]
+price_of_house_7 = reestate_infor['price'][(reestate_infor['Type'] == 'House') & (reestate_infor['bedrooms'] == 7)]
+price_of_house_8 = reestate_infor['price'][(reestate_infor['Type'] == 'House') & (reestate_infor['bedrooms'] == 8)]
+price_of_house_9 = reestate_infor['price'][(reestate_infor['Type'] == 'House') & (reestate_infor['bedrooms'] == 9)]
 
 
 # defining the price in number of bedroom for apartment
-price_of_apartment_1 = viet_housing['price'][(viet_housing['Type'] == 'Apartment') & (viet_housing['bedrooms'] == 1)]
-price_of_apartment_2 = viet_housing['price'][(viet_housing['Type'] == 'Apartment') & (viet_housing['bedrooms'] == 2)]
-price_of_apartment_3 = viet_housing['price'][(viet_housing['Type'] == 'Apartment') & (viet_housing['bedrooms'] == 3)]
-price_of_apartment_4 = viet_housing['price'][(viet_housing['Type'] == 'Apartment') & (viet_housing['bedrooms'] == 4)]
-price_of_apartment_5 = viet_housing['price'][(viet_housing['Type'] == 'Apartment') & (viet_housing['bedrooms'] == 5)]
-price_of_apartment_6 = viet_housing['price'][(viet_housing['Type'] == 'Apartment') & (viet_housing['bedrooms'] == 6)]
-price_of_apartment_7 = viet_housing['price'][(viet_housing['Type'] == 'Apartment') & (viet_housing['bedrooms'] == 7)]
+price_of_apartment_1 = reestate_infor['price'][(reestate_infor['Type'] == 'Apartment') & (reestate_infor['bedrooms'] == 1)]
+price_of_apartment_2 = reestate_infor['price'][(reestate_infor['Type'] == 'Apartment') & (reestate_infor['bedrooms'] == 2)]
+price_of_apartment_3 = reestate_infor['price'][(reestate_infor['Type'] == 'Apartment') & (reestate_infor['bedrooms'] == 3)]
+price_of_apartment_4 = reestate_infor['price'][(reestate_infor['Type'] == 'Apartment') & (reestate_infor['bedrooms'] == 4)]
+price_of_apartment_5 = reestate_infor['price'][(reestate_infor['Type'] == 'Apartment') & (reestate_infor['bedrooms'] == 5)]
+price_of_apartment_6 = reestate_infor['price'][(reestate_infor['Type'] == 'Apartment') & (reestate_infor['bedrooms'] == 6)]
+price_of_apartment_7 = reestate_infor['price'][(reestate_infor['Type'] == 'Apartment') & (reestate_infor['bedrooms'] == 7)]
 
 
 # defining the price in number of bedroom for land
-price_of_land_1 = viet_housing['price'][(viet_housing['Type'] == 'Land')  & (viet_housing['bedrooms'] == 1)]
-price_of_land_2 = viet_housing['price'][(viet_housing['Type'] == 'Land')  & (viet_housing['bedrooms'] == 2)]
-price_of_land_3 = viet_housing['price'][(viet_housing['Type'] == 'Land')  & (viet_housing['bedrooms'] == 3)]
-price_of_land_4 = viet_housing['price'][(viet_housing['Type'] == 'Land')  & (viet_housing['bedrooms'] == 4)]
-price_of_land_5 = viet_housing['price'][(viet_housing['Type'] == 'Land')  & (viet_housing['bedrooms'] == 5)]
-price_of_land_6 = viet_housing['price'][(viet_housing['Type'] == 'Land')  & (viet_housing['bedrooms'] == 6)]
-price_of_land_7 = viet_housing['price'][(viet_housing['Type'] == 'Land')  & (viet_housing['bedrooms'] == 7)]
-price_of_land_8 = viet_housing['price'][(viet_housing['Type'] == 'Land')  & (viet_housing['bedrooms'] == 8)]
-price_of_land_9 = viet_housing['price'][(viet_housing['Type'] == 'Land')  & (viet_housing['bedrooms'] == 9)]
+price_of_land_1 = reestate_infor['price'][(reestate_infor['Type'] == 'Land')  & (reestate_infor['bedrooms'] == 1)]
+price_of_land_2 = reestate_infor['price'][(reestate_infor['Type'] == 'Land')  & (reestate_infor['bedrooms'] == 2)]
+price_of_land_3 = reestate_infor['price'][(reestate_infor['Type'] == 'Land')  & (reestate_infor['bedrooms'] == 3)]
+price_of_land_4 = reestate_infor['price'][(reestate_infor['Type'] == 'Land')  & (reestate_infor['bedrooms'] == 4)]
+price_of_land_5 = reestate_infor['price'][(reestate_infor['Type'] == 'Land')  & (reestate_infor['bedrooms'] == 5)]
+price_of_land_6 = reestate_infor['price'][(reestate_infor['Type'] == 'Land')  & (reestate_infor['bedrooms'] == 6)]
+price_of_land_7 = reestate_infor['price'][(reestate_infor['Type'] == 'Land')  & (reestate_infor['bedrooms'] == 7)]
+price_of_land_8 = reestate_infor['price'][(reestate_infor['Type'] == 'Land')  & (reestate_infor['bedrooms'] == 8)]
+price_of_land_9 = reestate_infor['price'][(reestate_infor['Type'] == 'Land')  & (reestate_infor['bedrooms'] == 9)]
 
 
 # defining the price number in of bedroom for villa
-price_of_villa_1 = viet_housing['price'][(viet_housing['Type'] == 'Villa')  & (viet_housing['bedrooms'] == 1)]
-price_of_villa_2 = viet_housing['price'][(viet_housing['Type'] == 'Villa')  & (viet_housing['bedrooms'] == 2)]
-price_of_villa_3 = viet_housing['price'][(viet_housing['Type'] == 'Villa')  & (viet_housing['bedrooms'] == 3)]
-price_of_villa_4 = viet_housing['price'][(viet_housing['Type'] == 'Villa')  & (viet_housing['bedrooms'] == 4)]
-price_of_villa_5 = viet_housing['price'][(viet_housing['Type'] == 'Villa')  & (viet_housing['bedrooms'] == 5)]
-price_of_villa_6 = viet_housing['price'][(viet_housing['Type'] == 'Villa')  & (viet_housing['bedrooms'] == 6)]
-price_of_villa_7 = viet_housing['price'][(viet_housing['Type'] == 'Villa')  & (viet_housing['bedrooms'] == 7)]
-price_of_villa_8 = viet_housing['price'][(viet_housing['Type'] == 'Villa')  & (viet_housing['bedrooms'] == 8)]
+price_of_villa_1 = reestate_infor['price'][(reestate_infor['Type'] == 'Villa')  & (reestate_infor['bedrooms'] == 1)]
+price_of_villa_2 = reestate_infor['price'][(reestate_infor['Type'] == 'Villa')  & (reestate_infor['bedrooms'] == 2)]
+price_of_villa_3 = reestate_infor['price'][(reestate_infor['Type'] == 'Villa')  & (reestate_infor['bedrooms'] == 3)]
+price_of_villa_4 = reestate_infor['price'][(reestate_infor['Type'] == 'Villa')  & (reestate_infor['bedrooms'] == 4)]
+price_of_villa_5 = reestate_infor['price'][(reestate_infor['Type'] == 'Villa')  & (reestate_infor['bedrooms'] == 5)]
+price_of_villa_6 = reestate_infor['price'][(reestate_infor['Type'] == 'Villa')  & (reestate_infor['bedrooms'] == 6)]
+price_of_villa_7 = reestate_infor['price'][(reestate_infor['Type'] == 'Villa')  & (reestate_infor['bedrooms'] == 7)]
+price_of_villa_8 = reestate_infor['price'][(reestate_infor['Type'] == 'Villa')  & (reestate_infor['bedrooms'] == 8)]
 
 
 # Plot 1
@@ -109,7 +111,7 @@ plt.close()  # Close the figure to free memory
 # Plot 2
 # Number of properties by type
 
-type_counts = viet_housing['Type'].value_counts()
+type_counts = reestate_infor['Type'].value_counts()
 
 plt.figure(figsize=(9, 9))
 sns.barplot(x=type_counts.index, y=type_counts.values, palette='Reds')
@@ -229,10 +231,10 @@ def set_axis_style(ax, labels):
     ax.set_xlim(0.25, len(labels) + 0.75)
 
 
-price_of_house = viet_housing['price'][viet_housing['Type'] == 'House']
-price_of_apartment = viet_housing['price'][viet_housing['Type'] == 'Apartment']
-price_of_land = viet_housing['price'][viet_housing['Type'] == 'Land']
-price_of_villa = viet_housing['price'][viet_housing['Type'] == 'Villa']
+price_of_house = reestate_infor['price'][reestate_infor['Type'] == 'House']
+price_of_apartment = reestate_infor['price'][reestate_infor['Type'] == 'Apartment']
+price_of_land = reestate_infor['price'][reestate_infor['Type'] == 'Land']
+price_of_villa = reestate_infor['price'][reestate_infor['Type'] == 'Villa']
 
 
 data1 = sorted(price_of_house)
@@ -311,15 +313,15 @@ plt.close(fig)  # Close the figure to free memory
 
 
 # visualisation for bedroom number vs price
-price_of_house_1 = viet_housing['price'][(viet_housing['Type'] == 'House') & (viet_housing['bedrooms'] == 1)]
-price_of_house_2 = viet_housing['price'][(viet_housing['Type'] == 'House') & (viet_housing['bedrooms'] == 2)]
-price_of_house_3 = viet_housing['price'][(viet_housing['Type'] == 'House') & (viet_housing['bedrooms'] == 3)]
-price_of_house_4 = viet_housing['price'][(viet_housing['Type'] == 'House') & (viet_housing['bedrooms'] == 4)]
-price_of_house_5 = viet_housing['price'][(viet_housing['Type'] == 'House') & (viet_housing['bedrooms'] == 5)]
-price_of_house_6 = viet_housing['price'][(viet_housing['Type'] == 'House') & (viet_housing['bedrooms'] == 6)]
-price_of_house_7 = viet_housing['price'][(viet_housing['Type'] == 'House') & (viet_housing['bedrooms'] == 7)]
-price_of_house_8 = viet_housing['price'][(viet_housing['Type'] == 'House') & (viet_housing['bedrooms'] == 8)]
-price_of_house_9 = viet_housing['price'][(viet_housing['Type'] == 'House') & (viet_housing['bedrooms'] == 9)]
+price_of_house_1 = reestate_infor['price'][(reestate_infor['Type'] == 'House') & (reestate_infor['bedrooms'] == 1)]
+price_of_house_2 = reestate_infor['price'][(reestate_infor['Type'] == 'House') & (reestate_infor['bedrooms'] == 2)]
+price_of_house_3 = reestate_infor['price'][(reestate_infor['Type'] == 'House') & (reestate_infor['bedrooms'] == 3)]
+price_of_house_4 = reestate_infor['price'][(reestate_infor['Type'] == 'House') & (reestate_infor['bedrooms'] == 4)]
+price_of_house_5 = reestate_infor['price'][(reestate_infor['Type'] == 'House') & (reestate_infor['bedrooms'] == 5)]
+price_of_house_6 = reestate_infor['price'][(reestate_infor['Type'] == 'House') & (reestate_infor['bedrooms'] == 6)]
+price_of_house_7 = reestate_infor['price'][(reestate_infor['Type'] == 'House') & (reestate_infor['bedrooms'] == 7)]
+price_of_house_8 = reestate_infor['price'][(reestate_infor['Type'] == 'House') & (reestate_infor['bedrooms'] == 8)]
+price_of_house_9 = reestate_infor['price'][(reestate_infor['Type'] == 'House') & (reestate_infor['bedrooms'] == 9)]
 
 
 
@@ -405,13 +407,13 @@ plt.close(fig)  # Close the figure to free memory
 
 
 # visualisation of bedroom number for apartment
-price_of_apartment_1 = viet_housing['price'][(viet_housing['Type'] == 'Apartment') & (viet_housing['bedrooms'] == 1)]
-price_of_apartment_2 = viet_housing['price'][(viet_housing['Type'] == 'Apartment') & (viet_housing['bedrooms'] == 2)]
-price_of_apartment_3 = viet_housing['price'][(viet_housing['Type'] == 'Apartment') & (viet_housing['bedrooms'] == 3)]
-price_of_apartment_4 = viet_housing['price'][(viet_housing['Type'] == 'Apartment') & (viet_housing['bedrooms'] == 4)]
-price_of_apartment_5 = viet_housing['price'][(viet_housing['Type'] == 'Apartment') & (viet_housing['bedrooms'] == 5)]
-price_of_apartment_6 = viet_housing['price'][(viet_housing['Type'] == 'Apartment') & (viet_housing['bedrooms'] == 6)]
-price_of_apartment_7 = viet_housing['price'][(viet_housing['Type'] == 'Apartment') & (viet_housing['bedrooms'] == 7)]
+price_of_apartment_1 = reestate_infor['price'][(reestate_infor['Type'] == 'Apartment') & (reestate_infor['bedrooms'] == 1)]
+price_of_apartment_2 = reestate_infor['price'][(reestate_infor['Type'] == 'Apartment') & (reestate_infor['bedrooms'] == 2)]
+price_of_apartment_3 = reestate_infor['price'][(reestate_infor['Type'] == 'Apartment') & (reestate_infor['bedrooms'] == 3)]
+price_of_apartment_4 = reestate_infor['price'][(reestate_infor['Type'] == 'Apartment') & (reestate_infor['bedrooms'] == 4)]
+price_of_apartment_5 = reestate_infor['price'][(reestate_infor['Type'] == 'Apartment') & (reestate_infor['bedrooms'] == 5)]
+price_of_apartment_6 = reestate_infor['price'][(reestate_infor['Type'] == 'Apartment') & (reestate_infor['bedrooms'] == 6)]
+price_of_apartment_7 = reestate_infor['price'][(reestate_infor['Type'] == 'Apartment') & (reestate_infor['bedrooms'] == 7)]
 
 
 
@@ -495,15 +497,15 @@ plt.close(fig)  # Close the figure to free memory
 
 
 # visualisation of bedroom number for land
-price_of_land_1 = viet_housing['price'][(viet_housing['Type'] == 'Land')  & (viet_housing['bedrooms'] == 1)]
-price_of_land_2 = viet_housing['price'][(viet_housing['Type'] == 'Land')  & (viet_housing['bedrooms'] == 2)]
-price_of_land_3 = viet_housing['price'][(viet_housing['Type'] == 'Land')  & (viet_housing['bedrooms'] == 3)]
-price_of_land_4 = viet_housing['price'][(viet_housing['Type'] == 'Land')  & (viet_housing['bedrooms'] == 4)]
-price_of_land_5 = viet_housing['price'][(viet_housing['Type'] == 'Land')  & (viet_housing['bedrooms'] == 5)]
-price_of_land_6 = viet_housing['price'][(viet_housing['Type'] == 'Land')  & (viet_housing['bedrooms'] == 6)]
-price_of_land_7 = viet_housing['price'][(viet_housing['Type'] == 'Land')  & (viet_housing['bedrooms'] == 7)]
-price_of_land_8 = viet_housing['price'][(viet_housing['Type'] == 'Land')  & (viet_housing['bedrooms'] == 8)]
-price_of_land_9 = viet_housing['price'][(viet_housing['Type'] == 'Land')  & (viet_housing['bedrooms'] == 9)]
+price_of_land_1 = reestate_infor['price'][(reestate_infor['Type'] == 'Land')  & (reestate_infor['bedrooms'] == 1)]
+price_of_land_2 = reestate_infor['price'][(reestate_infor['Type'] == 'Land')  & (reestate_infor['bedrooms'] == 2)]
+price_of_land_3 = reestate_infor['price'][(reestate_infor['Type'] == 'Land')  & (reestate_infor['bedrooms'] == 3)]
+price_of_land_4 = reestate_infor['price'][(reestate_infor['Type'] == 'Land')  & (reestate_infor['bedrooms'] == 4)]
+price_of_land_5 = reestate_infor['price'][(reestate_infor['Type'] == 'Land')  & (reestate_infor['bedrooms'] == 5)]
+price_of_land_6 = reestate_infor['price'][(reestate_infor['Type'] == 'Land')  & (reestate_infor['bedrooms'] == 6)]
+price_of_land_7 = reestate_infor['price'][(reestate_infor['Type'] == 'Land')  & (reestate_infor['bedrooms'] == 7)]
+price_of_land_8 = reestate_infor['price'][(reestate_infor['Type'] == 'Land')  & (reestate_infor['bedrooms'] == 8)]
+price_of_land_9 = reestate_infor['price'][(reestate_infor['Type'] == 'Land')  & (reestate_infor['bedrooms'] == 9)]
 
 
 
@@ -590,14 +592,14 @@ plt.close(fig)  # Close the figure to free memory
 
 
 # visualisation of bedroom number for villa
-price_of_villa_1 = viet_housing['price'][(viet_housing['Type'] == 'Villa')  & (viet_housing['bedrooms'] == 1)]
-price_of_villa_2 = viet_housing['price'][(viet_housing['Type'] == 'Villa')  & (viet_housing['bedrooms'] == 2)]
-price_of_villa_3 = viet_housing['price'][(viet_housing['Type'] == 'Villa')  & (viet_housing['bedrooms'] == 3)]
-price_of_villa_4 = viet_housing['price'][(viet_housing['Type'] == 'Villa')  & (viet_housing['bedrooms'] == 4)]
-price_of_villa_5 = viet_housing['price'][(viet_housing['Type'] == 'Villa')  & (viet_housing['bedrooms'] == 5)]
-price_of_villa_6 = viet_housing['price'][(viet_housing['Type'] == 'Villa')  & (viet_housing['bedrooms'] == 6)]
-price_of_villa_7 = viet_housing['price'][(viet_housing['Type'] == 'Villa')  & (viet_housing['bedrooms'] == 7)]
-price_of_villa_8 = viet_housing['price'][(viet_housing['Type'] == 'Villa')  & (viet_housing['bedrooms'] == 8)]
+price_of_villa_1 = reestate_infor['price'][(reestate_infor['Type'] == 'Villa')  & (reestate_infor['bedrooms'] == 1)]
+price_of_villa_2 = reestate_infor['price'][(reestate_infor['Type'] == 'Villa')  & (reestate_infor['bedrooms'] == 2)]
+price_of_villa_3 = reestate_infor['price'][(reestate_infor['Type'] == 'Villa')  & (reestate_infor['bedrooms'] == 3)]
+price_of_villa_4 = reestate_infor['price'][(reestate_infor['Type'] == 'Villa')  & (reestate_infor['bedrooms'] == 4)]
+price_of_villa_5 = reestate_infor['price'][(reestate_infor['Type'] == 'Villa')  & (reestate_infor['bedrooms'] == 5)]
+price_of_villa_6 = reestate_infor['price'][(reestate_infor['Type'] == 'Villa')  & (reestate_infor['bedrooms'] == 6)]
+price_of_villa_7 = reestate_infor['price'][(reestate_infor['Type'] == 'Villa')  & (reestate_infor['bedrooms'] == 7)]
+price_of_villa_8 = reestate_infor['price'][(reestate_infor['Type'] == 'Villa')  & (reestate_infor['bedrooms'] == 8)]
 
 
 
@@ -690,11 +692,11 @@ sns.set(style="ticks", palette="muted", color_codes=True)
 
 plt.figure(figsize=(10, 10))
 # Plot the orbital period with horizontal boxes
-ax = sns.boxplot(x="price", y="district", data=viet_housing,
+ax = sns.boxplot(x="price", y="district", data=reestate_infor,
                  whis=np.inf, color="c")
 
 # Add in points to show each observation
-sns.stripplot(x="price", y="district", data=viet_housing,
+sns.stripplot(x="price", y="district", data=reestate_infor,
               jitter=True, size=3, color=".3", linewidth=0)
 plt.yticks(rotation=45, fontsize = 8)
 
@@ -818,7 +820,9 @@ app = pn.template.FastListTemplate(
             <div style="font-size: 16px;">
             Villa prices exhibit a more irregular distribution with multiple peaks, suggesting segmentation within the market. Different price ranges dominate specific villa types or locations. While the distribution appears relatively balanced, the presence of villas priced beyond 10,000 highlights the premium segment. The villa market stands out as distinct, with prices reflecting variations in location, size, owner valuation, and the quality of amenities offered.
             </div>
-            
+                             
+            <br><br>
+                             
             <div style="font-size: 16px;">
             Overall, the villa segment is not accessible to everyone due to its exclusivity and higher price points, making it a unique market catering to affluent buyers. Land, on the other hand, is more appropriate for those seeking long-term investment opportunities, particularly in suburban areas. Meanwhile, apartments remain the most affordable and convenient option for buyers with lower budgets, offering opportunities for both homeownership and investment.
             </div>
