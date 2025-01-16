@@ -30,6 +30,8 @@ pn.extension('tabulator',
 # load the dataset from database and load into pandas dataframe
 database = "real_estate.db"
 query = "SELECT * FROM reestate_infor"
+
+# While writing the code for connecting to the database, I looked up chatgpt 4 for the following part
 with sqlite3.connect(database) as conn:
     reestate_infor = pd.read_sql_query(query, conn)
 
@@ -830,6 +832,7 @@ app = pn.template.FastListTemplate(
             """,
             sizing_mode='stretch_width'),
 
+            # refined the description for plots 7, 8 and 9 using chatgpt 4
             pn.pane.Markdown("""
             <div style="font-size: 18px; font-weight: bold;">
             Plot 7: Price Distribution by Property Type
